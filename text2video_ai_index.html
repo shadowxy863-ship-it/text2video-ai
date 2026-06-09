@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text2Video AI Studio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f1115;
+  color: #e5e7eb;
+}
+
+.topbar {
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  background: #161a22;
+  border-bottom: 1px solid #242a36;
+}
+
+.brand {
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.layout {
+  display: flex;
+  height: calc(100vh - 52px);
+}
+
+.left {
+  width: 200px;
+  background: #141922;
+  padding: 10px;
+  border-right: 1px solid #242a36;
+}
+
+.item {
+  padding: 8px;
+  margin-bottom: 6px;
+  background: #1a202c;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.canvas {
+  width: 100%;
+  max-width: 750px;
+  background: #161a22;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #242a36;
+}
+
+textarea, select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #0f1115;
+  border: 1px solid #2a3140;
+  color: white;
+  border-radius: 8px;
+}
+
+textarea {
+  height: 120px;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 10px;
+  padding: 10px;
+  background: #0f1115;
+  border: 1px solid #2a3140;
+  min-height: 60px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="brand">Text2Video AI</div>
+  <div>Menu</div>
+</div>
+
+<div class="layout">
+
+<div class="left">
+  <div class="item">Text → Video</div>
+  <div class="item">Image → Video</div>
+  <div class="item">Templates</div>
+</div>
+
+<div class="center">
+<div class="canvas">
+
+<h3>AI Video Generator</h3>
+
+<select>
+  <option>Runway ML</option>
+  <option>Pika Labs</option>
+  <option>Luma AI</option>
+  <option>Kaiber AI</option>
+</select>
+
+<textarea id="prompt" placeholder="Write your idea..."></textarea>
+
+<button onclick="gen()">Generate</button>
+
+<div class="output" id="out">Output will appear here...</div>
+
+</div>
+</div>
+
+</div>
+
+<script>
+function gen(){
+  let p = document.getElementById('prompt').value;
+  document.getElementById('out').innerHTML =
+  "Generating...<br><b>" + p + "</b>";
+}
+</script>
+
+</body>
+</html>
